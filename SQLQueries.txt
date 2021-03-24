@@ -1,0 +1,33 @@
+create table ProductCart(ProductID int,ProductName nvarchar(20),Unitprice money,Quantity int) 
+
+
+drop table ProductCart
+
+
+select * from ProductCart
+
+
+create procedure AddProduct
+	@proid int,
+	@proname nvarchar(20),
+	@price money,
+	@qty int
+as 
+begin
+insert into ProductCart(ProductID,ProductName,Unitprice,Quantity) values(@proid,@proname,@price,@qty)
+end
+go
+
+
+
+create procedure DeleteProduct
+	@proid int
+as 
+begin
+delete from ProductCart where ProductID=@proid
+end
+go
+
+
+
+truncate table ProductCart
