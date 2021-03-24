@@ -1,0 +1,57 @@
+﻿@model ShoppingApp.Models.ProductModel
+
+@{
+    ViewBag.Title = "AddToCart";
+}
+
+<h2>Add Product To The Cart</h2>
+
+<div>
+   
+    <hr />
+    <form method="post">
+
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UnitPrice)
+            </dd>
+
+            <dt>
+                @Html.Label("Enter Quantity : ")
+            </dt>
+
+            <dd>
+                <input type="text" name="Qty" value="" />
+
+            </dd>
+
+            <input type="submit" name="AddToCart(Qty)" value="Add To Cart" />
+
+        </dl>
+    </form>
+</div>
+<p>
+    @Html.ActionLink("Show Cart", "ShowCart", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to Products' List", "Index")
+</p>

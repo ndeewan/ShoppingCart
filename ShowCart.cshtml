@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ShoppingApp.Models.ProductModel>
+
+@{
+    ViewBag.Title = "ShowCart";
+}
+
+<h2>My Cart</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.ActionLink("Remove From Cart", "RemoveFromCart", new { id=item.ProductID  })
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+<br />
+<br />
+<div style="color:darkgreen;text-align:center">
+    <label style="font-size:x-large">Total Amount : </label>
+    <p style="font-size:x-large"><strong>INR @ViewBag.Amount</strong></p>
+</div>
+<br />
+<p style="font-size:large;text-align:center">
+    @Html.ActionLink("Add More products", "Index")
+</p>

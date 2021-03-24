@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ShoppingApp.Models.ProductModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome !</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Add To Cart", "AddToCart", new { id = item.ProductID }) |
+            @Html.ActionLink("Show My Cart", "ShowCart", new { id = item.ProductID }) 
+           
+        </td>
+    </tr>
+}
+
+</table>
